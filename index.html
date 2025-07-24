@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autobacks - Centro Automotivo</title>
+
+    <!-- FAVICON -->
+    <link rel="icon" type="image/png" href="https://i.imgur.com/7NsWMnl.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        orange: {
+                            500: '#F69338',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .hero-image {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://i.imgur.com/zzBKppK.png');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        .map-container {
+            overflow: hidden;
+            padding-bottom: 56.25%;
+            position: relative;
+            height: 0;
+        }
+
+        .map-container iframe {
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 100%;
+            position: absolute;
+        }
+        
+        .fa-star, .fa-star-half-alt {
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body class="font-sans bg-blue-50">
+    <!-- Header/Navigation -->
+    <header class="bg-gray-900 text-white shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <img src="https://i.imgur.com/7NsWMnl.png" alt="Autobacks Logo" class="h-8 mr-2">
+                <h1 class="text-xl font-bold text-[#F69338]">AUTOBACKS</h1>
+            </div>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#home" class="hover:text-[#F69338] transition">Início</a>
+                <a href="#services" class="hover:text-[#F69338] transition">Serviços</a>
+                <a href="#about" class="hover:text-[#F69338] transition">Sobre</a>
+                <a href="#contact" class="hover:text-[#F69338] transition">Contato</a>
+            </nav>
+            <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-gray-800 px-4 py-2">
+            <div class="flex flex-col space-y-3">
+                <a href="#home" class="hover:text-[#F69338] transition">Início</a>
+                <a href="#services" class="hover:text-[#F69338] transition">Serviços</a>
+                <a href="#about" class="hover:text-[#F69338] transition">Sobre</a>
+                <a href="#contact" class="hover:text-[#F69338] transition">Contato</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-image text-white">
+        <div class="container mx-auto px-4 py-32 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4 text-[#F69338]">AUTOBACKS</h1>
+            <p class="text-xl md:text-2xl mb-8">Uma oficina com mais de 20 anos de experiência em Mogi das Cruzes</p>
+            <div class="flex flex-col md:flex-row justify-center gap-4">
+                <a href="#contact" class="bg-[#F69338] hover:bg-[#E08430] text-white font-bold py-3 px-6 rounded-lg transition duration-300">Agendar Serviço</a>
+                <a href="tel:1147231992" class="bg-transparent hover:bg-gray-800 border-2 border-white text-white font-bold py-3 px-6 rounded-lg transition duration-300">
+                    <i class="fas fa-phone mr-2"></i>(11) 4723-1992
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-16 bg-white border-t border-b border-blue-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Nossos <span class="text-orange-500">Serviços</span></h2>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service Card 1 -->
+                <div class="service-card bg-gray-50 rounded-lg overflow-hidden shadow-md transition duration-300">
+                    <div class="p-6">
+                        <div class="text-[#F69338] text-4xl mb-4">
+                            <i class="fas fa-car-crash"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2 text-gray-800">Freios e Suspensão</h3>
+                        <p class="text-gray-600">Manutenção preventiva e corretiva de todo o sistema de freios e suspensão do seu veículo.</p>
+                    </div>
+                </div>
+                
+                <!-- Service Card 2 -->
+                <div class="service-card bg-gray-50 rounded-lg overflow-hidden shadow-md transition duration-300">
+                    <div class="p-6">
+                        <div class="text-orange-500 text-4xl mb-4">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2 text-gray-800">Motor e Câmbio</h3>
+                        <p class="text-gray-600">Diagnóstico e reparo de problemas no motor do seu carro.</p>
+                    </div>
+                </div>
+                
+                <!-- Service Card 3 -->
+                <div class="service-card bg-gray-50 rounded-lg overflow-hidden shadow-md transition duration-300">
+                    <div class="p-6">
+                        <div class="text-orange-500 text-4xl mb-4">
+                            <i class="fas fa-spray-can"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2 text-gray-800">Polimento e Higienização</h3>
+                        <p class="text-gray-600">Serviços de estética automotiva para deixar seu carro com aspecto de novo.</p>
+                    </div>
+                </div>
+                
+                <!-- Service Card 4 -->
+                <div class="service-card bg-gray-50 rounded-lg overflow-hidden shadow-md transition duration-300">
+                    <div class="p-6">
+                        <div class="text-orange-500 text-4xl mb-4">
+                            <i class="fas fa-oil-can"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2 text-gray-800">Troca de Óleo</h3>
+                        <p class="text-gray-600">Troca de óleo e filtros com produtos de qualidade para manter seu motor protegido.</p>
+                    </div>
+                </div>
+                
+                <!-- Service Card 5 -->
+                <div class="service-card bg-gray-50 rounded-lg overflow-hidden shadow-md transition duration-300">
+                    <div class="p-6">
+                        <div class="text-orange-500 text-4xl mb-4">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2 text-gray-800">Alinhamento e Balanceamento</h3>
+                        <p class="text-gray-600">Serviços de geometria e balanceamento para melhor dirigibilidade e durabilidade dos pneus.</p>
+                    </div>
+                </div>
+                
+                <!-- Service Card 6 -->
+                <div class="service-card bg-gray-50 rounded-lg overflow-hidden shadow-md transition duration-300">
+                    <div class="p-6">
+                        <div class="text-orange-500 text-4xl mb-4">
+                            <i class="fas fa-car-alt"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2 text-gray-800">Outros Serviços</h3>
+                        <p class="text-gray-600">Embreagem, escapamento, correia dentada, limpeza de bico e diversos outros serviços automotivos.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-16 bg-blue-50 border-t border-b border-blue-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Depoimentos de <span class="text-[#F69338]">Clientes</span></h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 justify-items-center">
+                <!-- Testimonial 1 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="text-orange-500 text-2xl mr-3">
+                            <i class="fas fa-quote-left"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-gray-800">Edson Domingues</h3>
+                            <div class="text-sm text-gray-500 mb-1">Local Guide · 476 avaliações · 48 fotos</div>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">"Sempre faço serviços de revisão na autobacks, eles são nota 10.👍"</p>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="text-orange-500 text-2xl mr-3">
+                            <i class="fas fa-quote-left"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-gray-800">Rogerio Guitar</h3>
+                            <div class="text-sm text-gray-500 mb-1">Local Guide · 125 avaliações · 6 fotos</div>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">"Cumpre o que promete."</p>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="text-orange-500 text-2xl mr-3">
+                            <i class="fas fa-quote-left"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-gray-800">Rubens Kaltmaier</h3>
+                            <div class="text-sm text-gray-500 mb-1">Local Guide · 286 avaliações</div>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">"Atendimento muito bom! Cliente a muitos anos!"</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-white border-t border-blue-100">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col lg:flex-row items-center">
+                <div class="lg:w-1/2 mb-8 lg:mb-0 lg:pr-12">
+                    <img src="https://i.imgur.com/zzBKppK.png" 
+                         alt="Oficina Autobacks" class="rounded-lg shadow-lg w-full">
+                </div>
+                <div class="lg:w-1/2">
+                    <h2 class="text-3xl font-bold mb-6 text-gray-800">Sobre a <span class="text-[#F69338]">AUTOBACKS</span></h2>
+                    <p class="text-gray-600 mb-4">
+                        Somos a Autobacks Centro Automotivo, uma oficina com mais de 20 anos de experiência em Mogi das Cruzes - SP. Aqui, você encontra segurança, confiança e o melhor custo-benefício para cuidar do seu carro.
+                    </p>
+                    <p class="text-gray-600 mb-4">
+                        Trabalhamos com total transparência: só realizamos os serviços realmente necessários e explicamos tudo com clareza. Além disso, oferecemos pagamento facilitado em até 12x no cartão.
+                    </p>
+                    
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-semibold mb-4 text-gray-800">Horário de Funcionamento</h3>
+                        <ul class="space-y-2">
+                            <li class="flex justify-between border-b pb-2">
+                                <span class="font-medium">Segunda a Sexta:</span>
+                                <span>08:00 – 17:30</span>
+                            </li>
+                            <li class="flex justify-between border-b pb-2">
+                                <span class="font-medium">Sábado:</span>
+                                <span>08:00 – 11:30</span>
+                            </li>
+                            <li class="flex justify-between">
+                                <span class="font-medium">Domingo e feriados:</span>
+                                <span class="text-red-500">Fechado</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-white border-t border-blue-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Entre em <span class="text-[#F69338]">Contato</span></h2>
+            
+            <div class="flex justify-center">
+                <div class="w-full max-w-3xl">
+                    <div class="bg-gray-100 p-8 rounded-lg shadow-md">
+                        <h3 class="text-2xl font-bold mb-8 text-center text-gray-800">Informações de Contato</h3>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            <div class="space-y-6">
+                                <div class="flex items-start">
+                                    <i class="fas fa-map-marker-alt text-orange-500 text-2xl mt-1 mr-4"></i>
+                                    <div>
+                                        <h4 class="text-lg font-bold text-gray-800 mb-2">Endereço</h4>
+                                        <p class="text-gray-600">Av. Voluntário Fernando Pinheiro Franco, 1219</p>
+                                        <p class="text-gray-600">Centro, Mogi das Cruzes – SP</p>
+                                        <p class="text-gray-600">CEP: 08710-500</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start">
+                                    <i class="fas fa-clock text-orange-500 text-2xl mt-1 mr-4"></i>
+                                    <div>
+                                        <h4 class="text-lg font-bold text-gray-800 mb-2">Horário de Atendimento</h4>
+                                        <p class="text-gray-600">Segunda a Sexta: 08:00 – 17:30</p>
+                                        <p class="text-gray-600">Sábado: 08:00 – 11:30</p>
+                                        <p class="text-gray-600">Domingo e feriados: Fechado</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="space-y-6">
+                                <div class="flex items-start">
+                                    <i class="fas fa-phone-alt text-orange-500 text-2xl mt-1 mr-4"></i>
+                                    <div>
+                                        <h4 class="text-lg font-bold text-gray-800 mb-2">Telefones</h4>
+                                        <p class="text-gray-600">(11) 4723-1992</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start">
+                                    <i class="fas fa-envelope text-orange-500 text-2xl mt-1 mr-4"></i>
+                                    <div>
+                                        <h4 class="text-lg font-bold text-gray-800 mb-2">E-mail</h4>
+                                        <p class="text-gray-600">autobacks.centroautomotivo@gmail.com</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start">
+                                    <i class="fas fa-share-alt text-orange-500 text-2xl mt-1 mr-4"></i>
+                                    <div>
+                                        <h4 class="text-lg font-bold text-gray-800 mb-2">Redes Sociais</h4>
+                                        <div class="flex space-x-4 mt-2">
+                                            <a href="https://www.facebook.com/autobackscentroautomotivo" target="_blank" class="text-gray-600 hover:text-[#F69338] transition">
+                                                <i class="fab fa-facebook-f text-xl"></i>
+                                            </a>
+                                            <a href="https://www.instagram.com/autobackscentroautomotivo" target="_blank" class="text-gray-600 hover:text-[#F69338] transition">
+                                                <i class="fab fa-instagram text-xl"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-12">
+                            <h3 class="text-xl font-bold mb-6 text-center text-gray-800">Nos Encontre</h3>
+                            <div class="map-container rounded-lg shadow-md">
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3658.123073018088!2d-46.1918609246448!3d-23.52852667882766!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cddccb9905b6a9%3A0x9d8b4f8b1e7a1b1e!2sAv.%20Volunt%C3%A1rio%20Fernando%20Pinheiro%20Franco%2C%201219%20-%20Centro%2C%20Mogi%20das%20Cruzes%20-%20SP%2C%2008710-500!5e0!3m2!1spt-BR!2sbr!4v1687893123456!5m2!1spt-BR!2sbr" 
+                                        frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <div class="flex items-center">
+                        <img src="https://i.imgur.com/7NsWMnl.png" alt="Autobacks Logo" class="h-8 mr-2">
+                        <h2 class="text-xl font-bold text-[#F69338]">AUTOBACKS</h2>
+                    </div>
+                    <p class="mt-2 text-gray-400">Uma oficina com mais de 20 anos de experiência em Mogi das Cruzes</p>
+                </div>
+                
+                <div class="flex space-x-6">
+                    <a href="https://www.facebook.com/autobackscentroautomotivo" target="_blank" class="text-gray-400 hover:text-[#F69338] transition">
+                        <i class="fab fa-facebook-f text-xl"></i>
+                    </a>
+                    <a href="https://www.instagram.com/autobackscentroautomotivo" target="_blank" class="text-gray-400 hover:text-[#F69338] transition">
+                        <i class="fab fa-instagram text-xl"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; <script>document.write(new Date().getFullYear())</script> <span class="text-[#F69338]">AUTOBACKS</span> - Centro Automotivo. Todos os direitos reservados.</p>
+                <p class="mt-2 text-gray-400 flex items-center justify-center gap-2">
+                    <a href="https://linktr.ee/agencia_conecta" target="_blank" class="flex items-center gap-2 hover:text-[#F69338] transition">
+                        <img src="https://i.imgur.com/wW82x9b.png" alt="Agência Conecta" class="h-4"> 
+                        Feito por Agência Conecta
+                    </a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-6 right-6 bg-[#F69338] text-white p-3 rounded-full shadow-lg opacity-0 invisible transition-all duration-300">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+
+  <script>
+    // Mobile Menu Toggle
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    mobileMenuButton.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+    });
+    
+    // Smooth Scrolling for Anchor Links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            
+            if (targetElement) {
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+                
+                // Close mobile menu if open
+                if (!mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                }
+            }
+        });
+    });
+    
+    // Back to Top Button
+    const backToTopButton = document.getElementById('back-to-top');
+    
+    window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 300) {
+            backToTopButton.classList.remove('opacity-0', 'invisible');
+            backToTopButton.classList.add('opacity-100', 'visible');
+        } else {
+            backToTopButton.classList.remove('opacity-100', 'visible');
+            backToTopButton.classList.add('opacity-0', 'invisible');
+        }
+    });
+    
+    backToTopButton.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+    
+  </script>
+<p style="border-radius: 8px; text-align: center; font-size: 12px; color: #fff; margin-top: 16px;position: fixed; left: 8px; bottom: 8px; z-index: 10; background: rgba(0, 0, 0, 0.8); padding: 4px 8px;">Made with <img src="https://enzostvs-deepsite.hf.space/logo.svg" alt="DeepSite Logo" style="width: 16px; height: 16px; vertical-align: middle;display:inline-block;margin-right:3px;filter:brightness(0) invert(1);"><a href="https://enzostvs-deepsite.hf.space" style="color: #fff;text-decoration: underline;" target="_blank" >DeepSite</a> - 🧬 <a href="https://enzostvs-deepsite.hf.space?remix=awdawdawdawd2314/aaaaaa" style="color: #fff;text-decoration: underline;" target="_blank" >Remix</a></p></body>
+</html>
